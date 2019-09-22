@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Freelance Canvas</title>
+  </head>
+    <%=render 'layouts/head' %>
+  </head>
+  <body>
+  <!-- It's yielding a block -->
+    <%= render 'layouts/header' %>
+    <% if notice %>
+    <div class="alert alert-success" role="alert">
+    <p class="notice"><%= notice %></p>
+    </div>
+    <% end %>
+    <% if alert %>
+    <div class="alert alert-danger" role="alert">
+    <p class="alert"><%= alert %></p>
+    </div>
+    <% end %>
+    <div class="container">
+      <%= yield %>
+      <%=render 'layouts/footer' %>
+      <!--For debugging. It creates a debugging window-->
+
+    </div>
+  </body>
+</html>

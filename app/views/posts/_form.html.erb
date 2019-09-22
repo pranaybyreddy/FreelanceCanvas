@@ -1,0 +1,38 @@
+<!-- Created by Yi Implemented by Yi  -->
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" >
+
+    <%= form_for @post, html: { multipart: true } do |form| %>
+
+    <% if post.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+            <% post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title , class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_field :content, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image , class: 'form-control'%>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Submit",class:"btn btn-primary" %>
+    </div>
+
+    <% end %>
+
+  </div>
+</div>

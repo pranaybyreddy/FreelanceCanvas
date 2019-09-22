@@ -1,0 +1,3 @@
+<!-- Created by Yi Implemented by Yi  -->
+$('#follow_form').html("<%= escape_javascript(render('users/unfollow')) %>");
+$('#followers').html('<%= @user.followers.count %>');

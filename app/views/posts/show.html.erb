@@ -1,0 +1,97 @@
+<!--write title on 07/22/2019 by Zhengqi-->
+<% provide(:title, 'Show Post') %>
+
+<!-- Created by Yi Implemented by Yi  -->
+<div class="col-md-12">
+<div class="thumbnail">
+<%= image_tag @post.image.url(:large) , id: "main-image"%>
+</div></div>
+<div class = "container">
+<div class = "row">
+  <div class = "col-md-8" >
+      <p><span class="glyphicon glyphicon-heart"></span>
+      <strong>Likes: </strong>
+        <span id="likes"><%= @post.likes.count %></span></p>
+      <p>
+        <span class="glyphicon glyphicon-user"></span>
+        <strong>Author: </strong>
+        <%= link_to User.find(@post.user_id).name.titleize, user_path(User.find(@post.user_id)) %>
+      </p>
+
+      <p>
+        <span class="glyphicon glyphicon-subtitles"></span>
+        <strong>Title: </strong>
+        <%= @post.title %>
+      </p>
+
+      <p>
+        <span class="glyphicon glyphicon-comment"></span>
+        <strong>Content:</strong>
+        <%= @post.content %>
+      </p>
+</div>
+
+  
+<div class = "col-md-1">
+    <%= render 'like_form' if user_signed_in? %>
+  </div>
+
+  <div class = "col-md-1">
+      <% if current_user.id == @post.user_id %>
+        <%= link_to 'Edit', edit_post_path(@post) , class:'btn btn-success' , id:"btn-light"%> 
+      <% end %> 
+  </div>
+  <div class = "col-md-1">
+    <%= link_to "More", user_path(User.find(@post.user_id)), class:"btn btn-primary" , id:"btn-light" %>
+  </div>
+     
+  
+
+</div>
+
+<h3>Write Comments</h3>
+
+<%= render partial: 'comments/form', locals: { comment: @comment } if user_signed_in? %>
+
+<h3>User Comments</h3>
+<br />
+<% @comments.each do |comment| %>
+
+<div class="container">
+
+
+<div class="row">
+<div class="col-sm-12">
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-1">
+    <div class="thumbnail">
+      <%= image_tag User.find(comment.user_id).avatar.url(:small), :class => "img-responsive user-photo" %>
+    </div>
+  </div>
+
+  <div class="col-sm-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><%= User.find(comment.user_id).name.titleize %></strong> <span class="text-muted">commented on <%= comment.created_at %></span>
+      </div>
+      <div class="panel-body">
+        <%= comment.body %>
+      </div>
+    </div>
+  </div>
+
+
+   <% if comment.user_id == current_user.id || current_user.id == @post.user_id %>
+  <div class="col-sm-1">
+  <%= button_to 'Delete', "/posts/#{params[:id]}/comments/#{comment.id}", method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-warning" %>
+  </div>
+  <% end %>
+
+
+</div>
+
+</div>
+
+<% end %>

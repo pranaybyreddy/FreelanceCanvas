@@ -1,0 +1,5 @@
+<!-- Created by Yi Implemented by Yi  -->
+<%= form_for(current_user.active_like.find_by(post_id: @post.id),
+             html: { method: :delete }, remote: true) do |f| %>
+  <%= f.submit "Unlike", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,11 @@
+  <!-- Created by Yi Implemented by Yi  -->
+  
+  <% if current_user != nil%>
+    <div id="like_form">
+    <% if current_user.like?(@post) %>
+      <%= render 'unlike' %>
+    <% else %>
+      <%= render 'like' %>
+    <% end %>
+    </div>
+  <% end %>

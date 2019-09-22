@@ -1,0 +1,29 @@
+<!--# write title on 07/22/2019 by Zhengqi-->
+<% provide(:title, "Sign up") %>
+<!-- Created by Yi Implemented by Yi  -->
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'  %>
+      
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true, class: 'form-control'  %>
+
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control'  %>
+
+      <%= f.submit "Sign up", class: "btn btn-primary" %>
+
+  </div>
+</div>
+<% end %>
+
+<%= render "devise/shared/links" %>

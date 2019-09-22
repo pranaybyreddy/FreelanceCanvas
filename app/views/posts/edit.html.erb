@@ -1,0 +1,12 @@
+<!--write title on 07/22/2019 by Zhengqi-->
+<% provide(:title, 'Edit Post') %>
+
+<!-- Created by Yi Implemented by Yi  -->
+<h1>Editing Post</h1>
+
+<%= render 'form', post: @post %>
+
+<div class = "container">
+<%= link_to 'Delete This Masterpiece', @post, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger'%> 
+
+</div>

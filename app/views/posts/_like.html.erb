@@ -1,0 +1,5 @@
+<!-- Created by Yi Implemented by Yi  -->
+<%= form_for(current_user.active_like.build, remote: true) do |f| %>
+  <div><%= hidden_field_tag :post_id, @post.id %></div>
+  <%= f.submit "Like", class: "btn btn-primary" %>
+<% end %>

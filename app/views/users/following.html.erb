@@ -1,0 +1,25 @@
+
+<!--write title on 07/22/2019 by Zhengqi-->
+<% provide(:title, 'Followings') %>
+
+<!-- Created by Yi Implemented by Yi  -->
+<h1><%= @user.name.titleize %>'s Followings</h1>
+
+<div class = "row">
+  <div class = "col-sm-4">
+
+      <% @followings.each do |following| %>
+      <div class = "row">
+      <div class = "col-sm-2">
+      <%= image_tag following.avatar.url(:thumb), :class => "thumbnail" %>
+      </div>
+      <div class = "col-sm-10">
+      <strong>
+      <%= link_to following.name.titleize, "/users/#{following.id}" %>
+      </strong>
+        </div>
+        </div>
+      <% end %>
+    
+  </div>
+  </div>
