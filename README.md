@@ -54,13 +54,14 @@ The orginial idea was derived from the 500 px website, a photo sharing website f
 
 ### Contributions: 
 
-* Pranay Byreddy: Implemented form partial for comments. Implemented controller, view for comments, added validations, fixed rediretion issues. Added front end design using bootstrap for homepage.
-* Zhengqi Dong: implemeted the View for layout (includes header/footer partials, and the stylesheet in custom.css), wrote and tested the routes for welcome, worte and test the model and controller for users.
-* Trevor Shirey: Implemented Like MVC using general implementation. 
-* Yi Zhao: 
+* Pranay Byreddy:
+   - Implemented form partial for comments. Implemented controller, view for comments, added validations, fixed rediretion issues. Added front end design using bootstrap for homepage.
    - Implemented Devise User MVC. (Email verification, adding profile to user, adding customized column on User. Adding association with like, post, follow and corresponding helper functions. Adding all views into '/views/users' to make front end looks nice and clean.)
    - Implemented Follow(Relationship) MVC. (Create all views in '/views/relationships'. Create '.js.erb' file to implement follow (Ajax implementation). Create controller and model for relationship to implemented following functionality.) . 
    - Implemented Post MVC. (Create all views in '/views/post'. Implemented model and controller for post.)
+* Zhengqi Dong: implemeted the View for layout (includes header/footer partials, and the stylesheet in custom.css), wrote and tested the routes for welcome, worte and test the model and controller for users.
+* Trevor Shirey: Implemented Like MVC using general implementation. 
+* Yi Zhao: 
    - Implemented Like MVC (Ajax implementation). (Create create.js.erb and destroy.js.erb in '/views/likes/'. Create association with post & user. Implemented Model and Controller.)
    - Modified Comment MVC. (Associate comments with user, add verifications on delete button, change views (locates in "/views/posts/show") to make it looks nice.)
    - Adding Stylesheets to all views written to make it looks nice.
